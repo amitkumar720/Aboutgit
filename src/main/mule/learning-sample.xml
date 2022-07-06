@@ -31,5 +31,6 @@ output application/java
 		</ee:transform>
 		<logger level="INFO" doc:name="Logger" doc:id="1931ce63-7168-4bb2-b9c3-1d256bf3487a" />
 		<http:request method="GET" doc:name="Request" doc:id="806f32f9-b41c-491e-aebb-e7c993c2ef12" path="/" config-ref="HTTP_Request_configuration"/>
+		<logger level="INFO" doc:name="Logger" doc:id="d08b5e24-4435-4a8a-8af4-5faeb8194b7f" />
 	</flow>
 </mule>
