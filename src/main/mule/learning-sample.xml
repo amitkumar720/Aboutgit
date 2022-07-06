@@ -14,6 +14,9 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	<http:listener-config name="HTTP_Listener_config2" doc:name="HTTP Listener config" doc:id="9d0f356c-b40b-4380-8299-f2ca004f05d1" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="ea3dbe16-2cea-478a-9aeb-b518a80dae02" >
+		<http:request-connection host="localhost" port="8091" />
+	</http:request-config>
 	<flow name="learning-sampleFlow" doc:id="89fddf38-c791-49ed-8390-2d5d1b903785" >
 		<http:listener doc:name="Listener" doc:id="edfee216-9c7e-4370-86fd-fdaa54749503" config-ref="HTTP_Listener_config" path="/test"/>
 		<logger level="INFO" doc:name="Logger" doc:id="baa5d217-c9ec-4434-8b2b-a76538df5b7d" message="#[paylaod]"/>
@@ -26,5 +29,7 @@ output application/java
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="1931ce63-7168-4bb2-b9c3-1d256bf3487a" />
+		<http:request method="GET" doc:name="Request" doc:id="806f32f9-b41c-491e-aebb-e7c993c2ef12" path="/" config-ref="HTTP_Request_configuration"/>
 	</flow>
 </mule>
